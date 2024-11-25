@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verse of the Day</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+        #frame {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        h2 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: #555;
+        }
+        p {
+            margin: 10px 0;
+            font-size: 1rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="background"></div>
+    <div id="frame">
+        <h1>Verse of the Day</h1>
+        <h2>2 Peter 5-7</h2>
+        <p>For this very reason, make every effort to add to your faith goodness; and to goodness, knowledge; </p>
+        <p>and to knowledge, self-control; and to self-control, perseverance; </p>
+        <p>and to perseverance, godliness; and to godliness, mutual affection; and to mutual affection, love.</p>
+    </div>
+
+    <script>
+        // Array of image URLs from Pexels
+        const images = [
+        'https://images.pexels.com/photos/355747/pexels-photo-355747.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/34950/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/916336/pexels-photo-916336.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/458803/pexels-photo-458803.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/158607/cairn-fog-mystical-background-158607.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/219972/pexels-photo-219972.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/325812/pexels-photo-325812.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/572741/pexels-photo-572741.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/355261/pexels-photo-355261.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/371589/pexels-photo-371589.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/1287075/pexels-photo-1287075.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/1410224/pexels-photo-1410224.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/417142/pexels-photo-417142.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/1056063/pexels-photo-1056063.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/1565232/pexels-photo-1565232.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/1578679/pexels-photo-1578679.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/590470/pexels-photo-590470.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/247597/pexels-photo-247597.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600',
+        'https://images.pexels.com/photos/256701/pexels-photo-256701.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1600'
+    ];
+
+
+        // Select a random image from the array
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+
+        // Set the background image
+        const background = document.getElementById('background');
+        background.style.backgroundImage = `url(${randomImage})`;
+    </script>
+</body>
+</html>
